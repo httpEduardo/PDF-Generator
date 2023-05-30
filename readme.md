@@ -41,9 +41,5 @@ openssl pkcs12 -in filename.p12 -clcerts -nokeys -out filename.crt
 /** @var TCPDF $pdf */
 $pdf->setSignature('file://PATH-TO-CRT-FILE', 'file://PATH-TO-PRIVATE-KEY-FILE', 'PRIVATE-KEY-FILE-PASSPHRASE', '', 2 , $info);
 ```
-# Gerador de PDF
-# Gerador de PDF
-# Gerador de PDF
-# Gerador de PDF
 
 By Void
