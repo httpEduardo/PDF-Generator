@@ -1,47 +1,49 @@
-# PDF Generator with Digital Signature applied
+# Gerador de PDF com assinatura digital aplicada
 
 
-## How to setup & run
+## Como configurar e executar
 
 ```
-git clone git@github.com:harryosmar/php-pdf-digital-signature.git
+git clone git@github.com
 
-cd php-pdf-digital-signature
+cd php-pdf-assinatura digital
 
-composer install
+instalação do compositor
 
-# this will generate .pdf file in storage/logs/
+# isso irá gerar um arquivo .pdf em storage/logs/
 php bin/console.php app:pdf-generate
-``` 
+```
 
-### Verify generated file pdf signature
+### Verifique a assinatura do arquivo pdf gerado
 
-Open https://account.ascertia.com/demos/PDFSignatureVerificationStep1 to verify the newly generated file
+Abra https://account.ascertia.com/demos/PDFSignatureVerificationStep1 para verificar o arquivo recém-gerado
 
 
 
-## How the Digital Signature applied
+## Como a Assinatura Digital é aplicada
 
 ```
-# generate new .crt file, it's contained certificate & private key
+# gera novo arquivo .crt, contém certificado e chave privada
 openssl req -x509 -nodes -days 365000 -newkey rsa:1024 -keyout filename.crt -out filename.crt
 
-# convert .crt to binar .p12 file
+# converter .crt para arquivo binário .p12
 openssl pkcs12 -export -in tcpdf.crt -out filename.p12
 
-# get private key from .p12 file, it will ask for passphrase/password, so the generated private key will be encrypted
+# obtém a chave privada do arquivo .p12, ele solicitará a senha/senha, então a chave privada gerada será criptografada
 openssl pkcs12 -in filename.p12 -nocerts -out filename.key
 
-# get certificate from .p12 file
+# obtém o certificado do arquivo .p12
 openssl pkcs12 -in filename.p12 -clcerts -nokeys -out filename.crt
-``` 
+```
 
 ```php
 <?php
 /** @var TCPDF $pdf */
-$pdf->setSignature('file://PATH-TO-CRT-FILE', 'file://PATH-TO-PRIVATE-KEY-FILE', 'PRIVATE-KEY-FILE-PASSPHRASE', '', 2, $info);
+$pdf->setSignature('file://PATH-TO-CRT-FILE', 'file://PATH-TO-PRIVATE-KEY-FILE', 'PRIVATE-KEY-FILE-PASSPHRASE', '', 2 , $info);
 ```
-# PDF-Generator
-# PDF-Generator
-# PDF-Generator
-# PDF-Generator
+# Gerador de PDF
+# Gerador de PDF
+# Gerador de PDF
+# Gerador de PDF
+
+By Void
